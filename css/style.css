@@ -1,0 +1,539 @@
+/* -------------------------------- Codigo shareado entre las paginas -------------------------------- */
+*{
+    margin: 0px;
+    padding: 0px;
+}       
+body{
+    background-color: #DAFFED;
+}
+h2{
+    text-align: center;
+    font-size: 26px;
+    color: #031D44;
+}
+h4{
+    font-style: italic;
+    color: #F13627;
+    font-size: 20px;
+    padding: 10px 0;
+}
+th{
+    background-color: #1B3357;
+    color: white;
+}
+table,th, tr, td{
+    border: 1px solid black;
+    padding: 1px;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 10px;
+}
+p{
+    color: black;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.imagenesilustrativas{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+a{
+    color: #46110D;
+}
+a:visited{
+    color: rgb(119, 5, 119);
+}
+img{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.contenido_paginas{
+    margin: 0 10%;
+}
+/* -------------------------------------- Aca empieza el "Header" -------------------------------------- */
+header{
+    border: 2px;
+    border-color: black;
+    border-style: dashed; 
+    display: flex;
+    background-color: #841C26;
+    justify-content: space-between;
+}
+.logo{
+    height: 10%;
+    width: 10%;
+    padding: 2px;
+    border: none;
+}
+h1{
+    text-transform: uppercase;
+    text-align: center;
+    color: #FDB493;
+    font-size: 24px;
+    padding: 2%;
+}
+/* -------------------------------- Aca empieza la "Barra de navegacion" -------------------------------- */
+.navegacion{
+    justify-content: center;
+}
+#menu{
+    width: 100%;
+    margin-top: 5px;
+    background: #FDB493;
+    border-radius: 4px;
+    border: #FF8A5B solid 2px;
+}
+#barranavegacion{
+    margin: 5px 0px;
+    padding: 0px 3px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+    width: 98%;
+}
+#barranavegacion.show{
+    display: flex;
+}
+.li_barranavegacion{
+    margin: 2px;
+    background-color: #FF8A5B;
+    font-size: 12px;
+    text-align: center;
+    border: 1px;
+    border-color: grey;
+    border-style: solid;
+    text-decoration: underline;
+    border-radius: 3px;
+}
+.li_barranavegacion:hover{
+    background-color: #34F6F2;
+}
+/* ---------------------------------- Aca empieza el CSS de index.html ---------------------------------- */
+.imagen_portada{
+    margin-top: 20px;
+    max-width: 98%;
+}
+.titulos{
+    margin: 18px 0;
+}
+.div_categorias{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    margin: 0% 4% 5% 4%;
+    text-align: center;
+}
+.fuente_categorias{
+    text-decoration: underline;
+    font-size: 16px;
+    margin: auto;
+    max-width: 90%;
+}
+.imagen_categorias{
+    max-width: 95%;
+    margin-top: 10px;
+}
+/* -------------------------------------- Aca empieza el "Footer" -------------------------------------- */
+.footer{
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+.lifooter{
+    background-color: #FF8A5B;
+    width: 32%;
+    text-align: center;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    text-decoration: underline;
+    font-size: 14px;
+}
+.lifooter:hover{
+    background-color: #34F6F2;
+}
+/* -------------------------------- Aca empieza el CSS de paginaruedas.html -------------------------------- */
+.section_tabla_ruedas{
+    display: flex;
+    justify-content: center;
+}
+.tabla_mejores_ruedas{
+    margin-top: 10px;
+}
+.ruedas_chart{
+    max-width: 99%;
+}
+#tbody_tabla_ruedas{
+    background-color: rgb(173, 255, 255);
+}
+.tabla_oferta{
+    background-color: lawngreen;
+}
+.tabla_ocultar{
+    display: none;
+}
+.formulario_agregar{
+    display: flex;
+    justify-content: space-evenly;
+}
+.botones_tabla_ruedas{
+    display: flex;
+    justify-content: space-evenly;
+}
+.input_form_tabla{
+    border-radius: 0px;
+    font-size: 10px;
+    border: solid 1px #1B3357;
+    background: rgb(173, 255, 255);
+    max-width: 19%;
+}
+.boton_tabla_ruedas{
+    font-size: 10px;
+    border: solid 2px #1B3357;
+    max-width: 33%;
+}
+#boton_vaciar_tabla{
+    background-color: red;
+    color: white;
+}
+.input_filtro{
+    border-radius: 0px;
+    font-size: 10px;
+    border: solid 1px #1B3357;
+    background: rgb(173, 255, 255);
+    max-width: 45%;
+}
+.boton_filtro{
+    font-size: 10px;
+    border: solid 2px #1B3357;
+    max-width: 45%;
+}
+
+/* ----------------------------- Aca empieza el CSS de paginarulemanes.html ----------------------------- */
+.rulemanes_ceramicavsacero{
+    max-width: 60%;
+}
+
+.tabla_rulemanes{
+    background: #AECEBE;
+    margin-top: 20px;
+    max-width: 95%;
+}
+.li_partes_ruleman{
+    list-style: square;
+    width: 66%;
+    border: 1px solid black;
+}
+.li_partes_ruleman li{
+    background: #47B9B9;
+}
+.rulemanes_chart{
+    max-width: 99%;
+}
+/* ----------------------------- Aca empieza el CSS de paginartrucks.html ----------------------------- */
+.trucks_chart{
+    max-width: 99%;
+}
+/* -------------------------------- Aca empieza el CSS de paginadecks.html -------------------------------- */
+.lidecks{
+    background: #66FEFE;
+    width: 50%;
+    border: 2px solid black;
+}
+.lidecks li{
+    background: #47B9B9;
+}
+.decks_chart{
+    max-width: 99%;
+}
+/* -------------------------------- Aca empieza el CSS de contacto.html -------------------------------- */
+input, textarea{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin: 10px 0;
+    resize: vertical;
+}
+.div_contacto{
+    padding: 20px 15%;
+    margin: auto;
+}
+label{
+    font-size: 14px;
+    font-weight: bold;
+}
+#boton_submit{
+    display: none;
+    color: white;
+    background-color: #031D44;
+}
+#boton_submit.show{
+    display: flex;
+}
+#boton_submit:hover{
+    background-color: #841C26;
+}
+.div_generar_captcha{
+    display: flex;
+}
+#boton_generar_captcha{
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #E1E282;
+    max-width: 55%;
+    font-weight: bold;
+}
+#boton_generar_captcha:hover{
+    background-color: #FF8A5B;
+}
+#captcha_random{
+    font-size: 20px;
+    margin: auto;
+    color: #031D44;
+    background-color: #FF8A5B; 
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 2px;
+}
+.div_validar_captcha{
+    display: flex;
+    justify-content: space-evenly;
+}
+#validar_captcha{
+    max-width: 55%;
+    background-color: #FF8A5B;
+    font-weight: bold;
+}
+#validar_captcha:hover{
+    background-color: #841C26;
+}
+#tick_o_cruz{
+    margin: auto;
+    width: 25px;
+    height: 25px;
+    border: none;
+}
+#captcha_correcto_incorrecto{
+    font-size: 8px;
+    margin: auto;
+}
+
+  /* ----------------------------------- CODIGO SOLO PARA TABLET ----------------------------------- */
+@media only screen and (min-width: 768px) {
+    /* -------------------------- Codigo shareado entre las paginas para TABLET---------------------- */
+    h2{
+        font-size: 36px;
+        padding: 10px 0;
+    }
+    h4{
+        font-size: 22px;
+        padding: 20px 0;
+    }
+    table,th, tr, td{
+        padding: 4px;
+        font-size: 14px;
+    }
+    p{
+        font-size: 12px;
+    }
+    .imagenesilustrativas{
+        margin: 20px auto;
+    }
+    /* -------------------------------- Aca empieza el "Header" para TABLET---------------------------- */
+    h1{
+        font-size: 44px;
+    }
+    /* -------------------------- Aca empieza la "Barra de navegacion" para TABLET---------------------- */
+    #menu{
+        display: none;
+    }
+    #barranavegacion{
+        display: flex;
+        flex-direction: row;
+    }
+    .li_barranavegacion{
+        width: 18%;
+        border: black solid 2px;
+        font-size: 16px;
+    }
+    /* ---------------------------- Aca empieza el CSS de index.html para TABLET------------------------ */ 
+    .fuente_categorias{
+        font-size: 24px;
+    }
+    .div_categorias{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    /* -------------------------------- Aca empieza el "Footer" para TABLET---------------------------- */
+    .lifooter{
+        font-size: 16px;
+    }
+    /* -------------------------- Aca empieza el CSS de paginaruedas.html para TABLET---------------------- */
+    .tabla_mejores_ruedas{
+        margin-top: 20px;
+    }
+    .ruedas_chart{
+        max-width: 80%;
+    }
+    .input_form_tabla{
+        border: 2px solid #1B3357;
+        font-size: 12px;
+    }
+    .boton_tabla_ruedas{
+        font-size: 12px;
+    }
+    .input_filtro{
+        border: 2px solid #1B3357;
+        font-size: 12px;
+    }
+    .boton_filtro{
+        font-size: 12px;
+    }
+    /* ----------------------- Aca empieza el CSS de paginarulemanes.html para TABLET------------------- */
+    .rulemanes_ceramicavsacero{
+        max-width: 60%;
+    }
+    .li_partes_ruleman{
+        width: 40%;
+    }
+    /* ----------------------- Aca empieza el CSS de paginartrucks.html para TABLET------------------- */
+    .trucks_chart{
+        max-width: 60%;
+    }
+    /* -------------------------- Aca empieza el CSS de paginadecks.html para TABLET---------------------- */
+    .lidecks{
+        width: 33%;
+    }
+    .decks_chart{
+        max-width: 80%;
+    }
+    /* -------------------------- Aca empieza el CSS de contacto.html para TABLET---------------------- */
+    .div_contacto{
+        padding: 3% 20%;
+    }
+    label{
+        font-size: 16px;
+    }
+    #captcha_random{
+        font-size: 24px;
+    }
+    #validar_captcha{
+        max-width: 45%;
+    }
+    #tick_o_cruz{
+        width: 40px;
+        height: 40px;
+    }
+    #captcha_correcto_incorrecto{
+        font-size: 16px;
+    }
+}
+     /* ----------------------------------- CODIGO SOLO PARA PC ----------------------------------- */
+@media only screen and (min-width: 1024px) {
+    /* -------------------------- Codigo shareado entre las paginas para PC-------------------------- */
+    h2{
+        font-size: 44px;
+    }
+    h4{
+        font-size: 26px;
+        padding: 25px 0;
+    }
+    table,th, tr, td{
+        border: 2px solid black;
+        font-size: 20px;
+    }
+    p{
+        font-size: 16px;
+    }
+    .imagenesilustrativas{
+        margin: 30px auto;
+    }
+    /* -------------------------------- Aca empieza el "Header" para PC-------------------------------- */
+    .logo{
+        height: 95px;
+        width: 95px;
+        padding: 5px;
+    }
+    h1{
+        font-size: 54px;
+    }
+    /* -------------------------- Aca empieza la "Barra de navegacion" para PC-------------------------- */
+    .li_barranavegacion{
+        font-size: 20px;
+    }
+    /* ---------------------------- Aca empieza el CSS de index.html para PC---------------------------- */
+    .imagen_portada{
+        margin-top: 30px;
+        max-width: 100%;
+    }
+    .fuente_categorias{
+        font-size: 30px;
+    }
+    /* -------------------------------- Aca empieza el "Footer" para PC-------------------------------- */
+    .lifooter{
+        font-size: 20px;
+    }
+    /* -------------------------- Aca empieza el CSS de paginaruedas.html para PC-------------------------- */
+    .tabla_durezas_ruedas{
+        margin-top: 30px;
+    }
+    .ruedas_chart{
+        margin: 30px 0;
+        max-width: 70%;
+    }
+    .input_form_tabla{
+        font-size: 16px;
+    }
+    .boton_tabla_ruedas{
+        font-size: 16px;
+    }
+    .input_filtro{
+        font-size: 16px;
+    }
+    .boton_filtro{
+        font-size: 16px;
+    }
+    /* ----------------------- Aca empieza el CSS de paginarulemanes.html para PC----------------------- */
+    .rulemanes_ceramicavsacero{
+        max-width: 50%;
+    }
+    .li_partes_ruleman{
+        width: 33%;
+    }
+    .rulemanes_chart{
+        max-width: 75%;
+    }
+    /* ----------------------- Aca empieza el CSS de paginartrucks.html para PC----------------------- */
+    .trucks_chart{
+        max-width: 50%;
+    }
+    /* -------------------------- Aca empieza el CSS de paginadecks.html para PC-------------------------- */
+    .lidecks{
+        width: 25%;
+    }
+    .decks_chart{
+        max-width: 70%;
+    }
+    /* -------------------------- Aca empieza el CSS de contacto.html para PC-------------------------- */
+    .div_contacto{
+        padding: 3% 30%;
+    }
+    label{
+        font-size: 18px;
+    }
+    #boton_generar_captcha{
+        max-width: 40%;
+    }
+    #captcha_random{
+        font-size: 28px;
+    }
+    #tick_o_cruz{
+        width: 45px;
+        height: 45px;
+    }
+}
