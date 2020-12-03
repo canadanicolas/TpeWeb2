@@ -11,39 +11,41 @@ class HomeController {
         $this->view = new HomeView();
     }
 
-    private function checkLoggedIn(){
+    private function CheckLoggedIn(){
         session_start();
-        if(isset($_SESSION["nombre"])){
-            $logged = true;
+        if(!isset($_SESSION["admin"])){
+            $logged = "false";
+        } elseif ($_SESSION["admin"] == 1){
+            $logged = "admin";
         } else {
-            $logged = false;
+            $logged = "user";
         }
         return $logged;
     }
 
     function Home(){ 
-        $logged = $this->checkLoggedIn();
-        $this->view->renderHome($logged);
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderHome($logged);
     }
 
     function PaginaRulemanes(){
-        $logged = $this->checkLoggedIn();
-        $this->view->renderRulemanes($logged);
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderRulemanes($logged);
     }
 
     function PaginaTrucks(){ 
-        $logged = $this->checkLoggedIn();
-        $this->view->renderTrucks($logged);
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderTrucks($logged);
     }
 
     function PaginaDecks(){ 
-        $logged = $this->checkLoggedIn();
-        $this->view->renderDecks($logged);
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderDecks($logged);
     }
-
+    
     function PaginaContact(){ 
-        $logged = $this->checkLoggedIn();
-        $this->view->renderContact($logged);
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderContact($logged);
     }
 
 }

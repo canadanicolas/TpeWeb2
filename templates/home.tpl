@@ -1,14 +1,5 @@
 {include file="header.tpl"}
-{if $logged eq true}
-    <div>
-        <button class="li_barranavegacion" name="logout"><a href="logout"> Logout </a></button>
-    </div>
-{/if}
-{if $logged eq false}
-    <div>
-        <button class="li_barranavegacion" name="login"><a href="login"> Login </a></button>
-    </div>
-{/if}
+
         <img class="imagen_portada" src="imagenes/portada.jpg" alt="skateboarding_en_skatepark">
     <section class="titulos">
         <h2>Todo lo que necesitas para arrancar y mejorar en el mundo del skateboarding</h2>

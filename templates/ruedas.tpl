@@ -1,14 +1,4 @@
 {include file="header.tpl"}
-{if $logged eq true}
-    <div>
-        <button class="li_barranavegacion" name="logout"><a href="logout"> Logout </a></button>
-    </div>
-{/if}
-{if $logged eq false}
-    <div>
-        <button class="li_barranavegacion" name="login"><a href="login"> Login </a></button>
-    </div>
-{/if}
 <h2 class="titulos">Guia de ruedas de skate</h2>
 <section class="contenido_paginas">
     <h4>Material:</h4>
@@ -40,15 +30,15 @@
         </tr>
     </table>
     <h4>Tabla comparativa sobre las mejores ruedas de 2020</h4>
-    {if $logged eq true}
+    {if $logged eq "admin"}
     <form action="ruedas/insert" method="POST">
         <section class="formulario_agregar">
-            <input class="input_form_tabla" id="rueda" name="agregar_rueda" type="text" placeholder="Num ID: " value="">
-            <input class="input_form_tabla" id="modelo" name="agregar_modelo" type="number" placeholder="Medida: " value="">
-            <input class="input_form_tabla" id="medida" name="agregar_medida" type="text" placeholder="Modelo: " value="">
-            <input class="input_form_tabla" id="dureza" name="agregar_dureza" type="text" placeholder="Dureza: " value="">
-            <input class="input_form_tabla" id="precio" name="agregar_precio" type="double" placeholder="Precio: " value="">
-            <select class="input_form_tabla" id="id_marca" name="agregar_id_marca" value="">  
+            <input class="input_form_tabla" name="agregar_imagen" type="file" />
+            <input class="input_form_tabla"name="agregar_modelo" type="number" placeholder="Medida: " value="">
+            <input class="input_form_tabla"  name="agregar_medida" type="text" placeholder="Modelo: " value="">
+            <input class="input_form_tabla" name="agregar_dureza" type="text" placeholder="Dureza: " value="">
+            <input class="input_form_tabla"  name="agregar_precio" type="double" placeholder="Precio: " value="">
+            <select class="input_form_tabla"  name="agregar_id_marca" value="">  
                 <option value="" selected>Elegir Marca</option>
                     {foreach from=$marcas item=marca}
                     <option value="{$marca->id_marca}"> {$marca->nombre}</option>
@@ -64,13 +54,14 @@
         <table class="tabla_mejores_ruedas">
             <thead>
                 <tr>
+                    <th>Imagen</th>
+                    <th>Medida</th>
                     <th>Modelo</th>
                     <th>Marca</th>
                     <th>Precio</th>
-                    {if $logged eq false}
+                    {if $logged != "admin"}
                         <th>Detalle</th>
-                    {/if}
-                    {if $logged eq true}
+                    {else}
                         <th>Editar</th>
                         <th>Borrar</th>
                     {/if}
@@ -79,6 +70,8 @@
             <tbody id="tbody_tabla_ruedas">
                 {foreach from=$ruedas item=rueda}
                     <tr>
+                    <td><img class="logo" src="imagenes/{$rueda->imagen}"></td>
+                    <td>{$rueda->medida}</td>
                     <td>{$rueda->modelo}</td>
                     {foreach from=$marcas item=marca}
                         {if $rueda->id_marca eq $marca->id_marca}
@@ -86,10 +79,9 @@
                         {/if}
                     {/foreach}
                         <td>{$rueda->precio}</td>  
-                    {if $logged eq false}                                  
+                    {if $logged != "admin"}                                  
                         <td><button class="detalle_fila"><a href="ruedas/detail/{$rueda->id_rueda}">Detalle</a></button></td>
-                    {/if}
-                    {if $logged eq true}
+                    {else}
                         <td><button class="detalle_fila"><a href="ruedas/update/{$rueda->id_rueda}">Editar</a></button></td>
                         <td><button class="borrar_fila"><a href="ruedas/delete/{$rueda->id_rueda}">Borrar</a></button></td>
                     {/if}
@@ -100,12 +92,11 @@
     </div>
     </section>
     <h4>Tabla Marcas</h4>
-    {if $logged eq true}
+    {if $logged eq "admin"}
     <form action="marca/insert" method="POST">
         <section class="formulario_agregar">
-            <input class="input_form_tabla" id="marca" name="agregar_marca" type="number" placeholder="Num ID: " value="">
-            <input class="input_form_tabla" id="nombre" name="agregar_nombre" type="text" placeholder="Nombre: " value="">
-            <input class="input_form_tabla" id="pais" name="agregar_pais" type="text" placeholder="Pais de origen: " value="">
+            <input class="input_form_tabla"  name="agregar_nombre" type="text" placeholder="Nombre: " value="">
+            <input class="input_form_tabla"  name="agregar_pais" type="text" placeholder="Pais de origen: " value="">
         </section>
         <section class="botones_tabla_ruedas"> 
             <input class="boton_tabla_ruedas" type="submit" value="Agregar" value="">
@@ -116,10 +107,9 @@
         <table class="tabla_mejores_ruedas">
             <thead>
                 <tr>
-                    <th>Num ID</th>
                     <th>Marca</th>
                     <th>Pais de origen (mm)</th>
-                    {if $logged eq true}
+                    {if $logged eq "admin"}
                     <th>Editar</th>
                     <th>Borrar</th>
                     {/if}
@@ -128,10 +118,9 @@
             <tbody id="tbody_tabla_ruedas">
                 {foreach from=$marcas item=marca}
                             <tr>
-                            <td>{$marca->id_marca}</td>
                             <td>{$marca->nombre}</td>
                             <td>{$marca->pais_origen}</td>
-                            {if $logged eq true}
+                            {if $logged eq "admin"}
                                 <td><button class="editar_fila"><a href="marca/update/{$marca->id_marca}">Editar</a></button></td>
                                 <td><button class="borrar_fila"><a href="marca/delete/{$marca->id_marca}">Borrar</a></button></td>
                             {/if}

@@ -22,12 +22,15 @@
     $r->addRoute("contact", "GET", "HomeController", "PaginaContact");
     $r->addRoute("login", "GET", "UserController", "PaginaLogin");
     $r->addRoute("logout", "GET", "UserController", "Logout");
+    $r->addRoute("registracion", "GET", "UserController", "PaginaRegistracion");
+    $r->addRoute("usuarios", "GET", "UserController", "PaginaUsers");
+    $r->addRoute("ruedasCsr", "GET", "RuedasController", "RuedasCsr");
 
     //Acciones
     $r->addRoute("ruedas/insert", "POST", "RuedasController", "InsertRueda"); 
     $r->addRoute("ruedas/delete/:ID", "GET", "RuedasController", "DeleteRueda"); //:ID es el parametro que le pasas
     $r->addRoute("ruedas/detail/:ID", "GET", "RuedasController", "DetailRueda");
-    $r->addRoute("ruedas/update/:ID", "GET", "RuedasController", "DetailRueda"); 
+    $r->addRoute("ruedas/update/:ID", "GET", "RuedasController", "RenderUpdateRueda"); 
     $r->addRoute("ruedas/update/confirm/:ID", "POST", "RuedasController", "UpdateRueda");
     $r->addRoute("ruedas/filter/:ID", "GET", "RuedasController", "RuedaPorMarca");
     $r->addRoute("marca/insert", "POST", "MarcasController", "InsertMarca");
@@ -35,6 +38,10 @@
     $r->addRoute("marca/update/:ID", "GET", "MarcasController", "DetailMarca");
     $r->addRoute("marca/update/confirm/:ID", "POST", "MarcasController", "UpdateMarca");
     $r->addRoute("login", "POST", "UserController", "Login");
+    $r->addRoute("registrar", "POST", "UserController", "Registrar");
+    $r->addRoute("admin/:ID", "POST", "UserController", "SetUserToAdmin");
+    $r->addRoute("registrado/:ID", "POST", "UserController", "SetAdminToUser");
+    $r->addRoute("deleteUser/:ID", "POST", "UserController", "DeleteUser");
 
     //Ruta por defecto.
     $r->setDefaultRoute("HomeController", "Home");

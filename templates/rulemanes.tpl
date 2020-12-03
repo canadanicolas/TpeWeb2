@@ -1,14 +1,4 @@
 {include file="header.tpl"}
-{if $logged eq true}
-    <div>
-        <button class="li_barranavegacion" name="logout"><a href="logout"> Logout </a></button>
-    </div>
-{/if}
-{if $logged eq false}
-    <div>
-        <button class="li_barranavegacion" name="login"><a href="login"> Login </a></button>
-    </div>
-{/if}
        <section class="contenido_paginas" >
     <h2 class="titulos">Guia de rulemanes para el skate</h2>
         <h4>Informacion basica:</h4>

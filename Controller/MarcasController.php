@@ -16,47 +16,51 @@ class MarcasController {
         $this->modelRuedas = new RuedasModel();
     }
 
-    private function mandarAlLogin(){
+    private function MandarAlLogin(){
         session_start();
         if(!isset($_SESSION["nombre"])){ // si no esta logeado lo manda al login
             header("Location: ". LOGIN);
-            die(); // para que no siga la ejecucion del showhome por ej.
+            die();// para que no siga la ejecucion del showhome por ej.
+        }elseif ($_SESSION["admin"] == 0){
+            header("Location: ".BASE_URL."home"); //si es un user entrando a donde no debe lo manda al home
+            die();
         }
     }
-    private function checkLoggedIn(){
-        session_start();
-        if(isset($_SESSION["nombre"])){
-            $logged = true;
+    
+    private function CheckLoggedIn(){
+        if(!isset($_SESSION["admin"])){
+            $logged = "false";
+        } elseif ($_SESSION["admin"] == 1){
+            $logged = "admin";
         } else {
-            $logged = false;
+            $logged = "user";
         }
         return $logged;
     }
-
+    
     function InsertMarca(){
-        $this->mandarAlLogin();
+        $this->MandarAlLogin();
         $this->model->InsertMarca($_POST["agregar_marca"], $_POST["agregar_nombre"], $_POST["agregar_pais"]);
         $this->view->ShowRuedasLocation();
     }
 
     function DeleteMarca($params=null){ //para que soporte null como parametro
-        $this->mandarAlLogin();
+        $this->MandarAlLogin();
         $id_marca = $params[":ID"];
         $this->model->DeleteMarca($id_marca);
         $this->view->ShowRuedasLocation();
     }
 
     function DetailMarca($params=null){
-        $this->mandarAlLogin();
+        $this->MandarAlLogin();
         $id_marca = $params[":ID"];
-        $marcas = $this->model->getMarcaUpdate($id_marca);
-        $ruedas = $this->modelRuedas->getRueda();
-        $logged = $this->checkLoggedIn();
-        $this->view->renderDetailMarcas($ruedas, $marcas, $logged);
+        $marcas = $this->model->GetMarcaUpdate($id_marca);
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderDetailMarcas($marcas, $logged);
     }
 
     function UpdateMarca($params = null){
-        $this->mandarAlLogin();
+        $this->MandarAlLogin();
         $id_marca = $params[':ID'];
         $this->model->UpdateMarca($_POST["agregar_nombre"], $_POST["agregar_pais"], $id_marca);
         $this->view->ShowRuedasLocation();

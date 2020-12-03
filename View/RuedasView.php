@@ -10,23 +10,29 @@ class RuedasView {
         $this->smarty = new Smarty();
     }
     
-    function renderPaginaRuedas($ruedas, $marcas, $logged) {
-
+    function RenderPaginaRuedas($ruedas, $marcas, $logged) {
         $this->smarty->assign('ruedas', $ruedas);
         $this->smarty->assign('marcas', $marcas);
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/ruedas.tpl");
         
     }
-    function renderDetailRuedas($ruedas, $marcas, $logged){
-        
+
+    function RenderDetailRueda($ruedas, $marcas, $logged){
+        $this->smarty->assign('ruedas', $ruedas);
+        $this->smarty->assign('marcas', $marcas);
+        $this->smarty->assign('logged', $logged);
+        $this->smarty->display("templates/detailRueda.tpl");
+    }
+
+    function RenderUpdateRueda($ruedas, $marcas, $logged){
         $this->smarty->assign('ruedas', $ruedas);
         $this->smarty->assign('marcas', $marcas);
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/updateRueda.tpl");
     }
 
-    function renderRuedaPorMarca($id, $ruedas, $marcas, $logged){
+    function RenderRuedaPorMarca($id, $ruedas, $marcas, $logged){
         $this->smarty->assign('id', $id);
         $this->smarty->assign('ruedas', $ruedas);
         $this->smarty->assign('marcas', $marcas);
@@ -41,6 +47,13 @@ class RuedasView {
     function ShowRuedasLocation(){
         header("Location: ".BASE_URL."ruedas");
     }
+
+    function ShowRuedasCsr() {
+        $smarty = new Smarty();
+        $smarty->assign('titulo_s', "Lista de tareas utilizando CSR");
+        $smarty->display('templates/tasks_csr.tpl'); // muestro el template 
+    }
+
 
 }
 ?>

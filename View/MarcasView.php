@@ -10,9 +10,8 @@ class MarcasView{
         $this->smarty = new Smarty();
     }
     
-    function renderDetailMarcas($ruedas, $marcas, $logged){
-        
-        $this->smarty->assign('ruedas', $ruedas);
+    function RenderDetailMarcas($marcas, $logged){
+
         $this->smarty->assign('marcas', $marcas);
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/updateMarca.tpl");

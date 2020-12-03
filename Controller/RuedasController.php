@@ -18,66 +18,85 @@ class RuedasController {
 
     }
 
-    private function mandarAlLogin(){
+    private function MandarAlLogin(){
         session_start();
-        if(!isset($_SESSION["nombre"])){ // si no esta logeado lo manda al login
+        if(!isset($_SESSION["admin"])){ // si no esta logeado lo manda al login
             header("Location: ". LOGIN);
             die(); // para que no siga la ejecucion del showhome por ej.
+        }elseif ($_SESSION["admin"] == 0){
+            header("Location: ".BASE_URL."home"); //si es un user entrando a donde no debe lo manda al home
+            die();
         }
     }
-    
-    private function checkLoggedIn(){
+
+
+    private function CheckLoggedIn(){
         session_start();
-        if(isset($_SESSION["nombre"])){
-            $logged = true;
+        if(!isset($_SESSION["admin"])){
+            $logged = "false";
+        } elseif ($_SESSION["admin"] == 1){
+            $logged = "admin";
         } else {
-            $logged = false;
+            $logged = "user";
         }
         return $logged;
     }
 
     function PaginaRuedas(){
-        $ruedas = $this->model->getRueda();
-        $marcas = $this->modelMarca->getMarca();
-        $logged = $this->checkLoggedIn();
-        $this->view->renderPaginaRuedas($ruedas, $marcas, $logged);
+        $ruedas = $this->model->GetRuedas();
+        $marcas = $this->modelMarca->GetMarca();
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderPaginaRuedas($ruedas, $marcas, $logged);
     }
 
     function InsertRueda(){
-        $this->mandarAlLogin();
-        $this->model->InsertRueda($_POST["agregar_rueda"], $_POST["agregar_modelo"], $_POST["agregar_medida"]
-        , $_POST["agregar_dureza"], $_POST["agregar_precio"], $_POST["agregar_id_marca"]);
+        $this->MandarAlLogin();
+        $this->model->InsertRueda($_POST["agregar_imagen"], $_POST["agregar_modelo"], $_POST["agregar_medida"], 
+            $_POST["agregar_dureza"], $_POST["agregar_precio"], $_POST["agregar_id_marca"]);
         $this->view->ShowRuedasLocation();
     }
 
     function DeleteRueda($params = null){
-        $this->mandarAlLogin();
+        $this->MandarAlLogin();
         $id_rueda = $params[':ID'];
         $this->model->DeleteRueda($id_rueda);
         $this->view->ShowRuedasLocation();
     }
 
+    function RenderUpdateRueda($params=null){
+        $id_rueda = $params[":ID"];
+        $marca = $this->modelMarca->GetMarca();
+        $rueda = $this->model->GetRuedaDetalle($id_rueda);
+        $logged = $this->checkLoggedIn();
+        $this->view->renderUpdateRueda($rueda, $marca, $logged);
+    }
+
     function UpdateRueda($params = null){
-        $this->mandarAlLogin();
+        $this->MandarAlLogin();
         $rueda_id = $params[':ID'];
-        $this->model->UpdateRueda($_POST["agregar_modelo"], $_POST["agregar_medida"]
+        $this->model->UpdateRueda($_POST["agregar_imagen"], $_POST["agregar_modelo"], $_POST["agregar_medida"]
         , $_POST["agregar_dureza"], $_POST["agregar_precio"], $_POST["agregar_id_marca"], $rueda_id);
         $this->view->ShowRuedasLocation();
     }
 
     function DetailRueda($params=null){
         $id_rueda = $params[":ID"];
-        $marcas = $this->modelMarca->getMarca();
-        $ruedas = $this->model->getRuedaDetalle($id_rueda);
+        $marca = $this->modelMarca->GetMarca();
+        $rueda = $this->model->GetRuedaDetalle($id_rueda);
         $logged = $this->checkLoggedIn();
-        $this->view->renderDetailRuedas($ruedas, $marcas, $logged);
+        $this->view->renderDetailRueda($rueda, $marca, $logged);
     }
     
     function RuedaPorMarca($params=null){
         $id = $params[":ID"];
-        $ruedas = $this->model->getRueda();
-        $marcas = $this->modelMarca->getMarca();
-        $logged = $this->checkLoggedIn();
-        $this->view->renderRuedaPorMarca($id, $ruedas, $marcas, $logged);
+        $ruedas = $this->model->GetRuedas();
+        $marcas = $this->modelMarca->GetMarca();
+        $logged = $this->CheckLoggedIn();
+        $this->view->RenderRuedaPorMarca($id, $ruedas, $marcas, $logged);
     }
+
+    function RuedasCsr($params = null) {
+        $this->view->ShowRuedasCsr();
+    }
+
 }

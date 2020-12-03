@@ -1,14 +1,5 @@
 {include file="header.tpl"}
-{if $logged eq true}
-    <div>
-        <button class="li_barranavegacion" name="logout"><a href="logout"> Logout </a></button>
-    </div>
-{/if}
-{if $logged eq false}
-    <div>
-        <button class="li_barranavegacion" name="login"><a href="login"> Login </a></button>
-    </div>
-{/if}
+
    <section class="div_contacto">
         <form action="">
             <label for="nombre"> Nombre: </label> <input type="text" name="nombre" placeholder="Nombre" value=""/>

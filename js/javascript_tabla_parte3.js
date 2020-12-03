@@ -194,10 +194,12 @@ async function vaciar_todo(){
     precargar();
     console.log(json.tpe); 
 }
+
 catch(e){
     console.log("error");
   }
 }
+
 function manterner_cargada(){
     setTimeout(manterner_cargada, 5000);{
         filtrar();

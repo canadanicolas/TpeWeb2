@@ -8,33 +8,36 @@ class HomeView{
 
     function __construct(){
         $this->smarty = new Smarty();
+
+        // asignar el logged en la view no controller
+        //$this->smarty->assign('logged', $logged);
     }
 
-    function renderHome($logged){
+    function RenderHome($logged){
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/home.tpl");
     }
 
-    function renderRulemanes($logged){
+    function RenderRulemanes($logged){
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/rulemanes.tpl");
     }
 
-    function renderTrucks($logged){
+    function RenderTrucks($logged){
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/trucks.tpl");
     }
 
-    function renderDecks($logged){
+    function RenderDecks($logged){
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/decks.tpl");
     }
 
-    function renderContact($logged){
+    function RenderContact($logged){
         $this->smarty->assign('logged', $logged);
         $this->smarty->display("templates/contact.tpl");
     }
-
+    
     function ShowHomeLocation(){
         header("Location: ".BASE_URL."home");
     }    

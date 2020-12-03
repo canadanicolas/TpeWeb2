@@ -9,33 +9,42 @@ class RuedasModel{
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    function getRueda(){
+    function GetRuedas(){
         $sentencia = $this->db->prepare("SELECT * FROM rueda"); // selecciona todo de tabla rueda
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
 
-    function InsertRueda($id, $medida, $modelo, $dureza, $precio, $id_marca){
-        $sentencia = $this->db->prepare("INSERT INTO rueda(id_rueda, medida, modelo, dureza, precio, id_marca) VALUES (?,?,?,?,?,?)");
-        $sentencia->execute(array($id, $medida, $modelo, $dureza, $precio, $id_marca));
+    function GetRueda($id_rueda){
+        $sentencia = $this->db->prepare("SELECT * FROM rueda WHERE id_rueda=?");
+        $sentencia->execute(array($id_rueda));
+        return $sentencia->fetch(PDO::FETCH_OBJ);
+    }
+
+
+    function InsertRueda($imagen, $medida, $modelo, $dureza, $precio, $id_marca){
+        $sentencia = $this->db->prepare("INSERT INTO rueda(imagen, medida, modelo, dureza, precio, id_marca) VALUES (?,?,?,?,?,?)");
+        $sentencia->execute(array($imagen, $medida, $modelo, $dureza, $precio, $id_marca));
+        return $this->db->lastInsertId();
     }
 
     function DeleteRueda($id_rueda){
         $sentencia = $this->db->prepare("DELETE FROM rueda WHERE id_rueda=?");
         $sentencia->execute(array($id_rueda));
+        return $sentencia->rowCount();
     }
 
-    function UpdateRueda($medida, $modelo, $dureza, $precio, $id_marca, $id_rueda){
-        $sentencia = $this->db->prepare('UPDATE rueda SET medida=?, modelo=?, dureza=?, precio=?, id_marca=? WHERE id_rueda=?');
-        $sentencia->execute(array($medida, $modelo, $dureza, $precio, $id_marca, $id_rueda));
+    function UpdateRueda($imagen, $medida, $modelo, $dureza, $precio, $id_marca, $id){
+        $sentencia = $this->db->prepare('UPDATE rueda SET imagen=?, medida=?, modelo=?, dureza=?, precio=?, id_marca=? WHERE id_rueda=?');
+        $sentencia->execute(array($imagen, $medida, $modelo, $dureza, $precio, $id_marca, $id));
+        return $sentencia->rowCount();
     }
 
-    function getRuedaDetalle($id_rueda){
+    function GetRuedaDetalle($id_rueda){
         $sentencia = $this->db->prepare('SELECT * FROM rueda WHERE id_rueda=?');
         $sentencia->execute(array($id_rueda));
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
     }
-    
 
 }
 ?>

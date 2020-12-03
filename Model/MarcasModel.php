@@ -9,7 +9,7 @@ class MarcasModel{
         $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    function getMarca(){
+    function GetMarca(){
         $sentencia = $this->db->prepare("SELECT * FROM marca"); // selecciona todo de tabla marca
         $sentencia->execute();
         return $sentencia->fetchAll(PDO::FETCH_OBJ);
@@ -24,7 +24,7 @@ class MarcasModel{
         $sentencia->execute(array($id_marca)); // $id_marca es el numero de id_marca en la bd
     }   
 
-    function getMarcaUpdate($id_marca){
+    function GetMarcaUpdate($id_marca){
         $sentencia = $this->db->prepare('SELECT * FROM marca WHERE id_marca=?');
         $sentencia->execute(array($id_marca)); 
         return $sentencia->fetchAll(PDO::FETCH_OBJ);

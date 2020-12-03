@@ -1,4 +1,5 @@
 /* -------------------------------- Codigo shareado entre las paginas -------------------------------- */
+
 *{
     margin: 0px;
     padding: 0px;
@@ -50,6 +51,36 @@ img{
 }
 .contenido_paginas{
     margin: 0 10%;
+}
+.comentarios{
+    display: flex;
+    justify-content: center;
+    
+}
+.clasificacion {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.clasificacion input {
+    position: absolute;
+    top: -100px;
+}
+
+.hidden{
+    display: none;
+}
+
+.clasificacion label {
+    float: right;
+    color: #333;
+}
+
+.clasificacion label:hover,
+.clasificacion label:hover ~ label,
+.clasificacion input:checked ~ label {
+    color: #dd4;
 }
 /* -------------------------------------- Aca empieza el "Header" -------------------------------------- */
 header{

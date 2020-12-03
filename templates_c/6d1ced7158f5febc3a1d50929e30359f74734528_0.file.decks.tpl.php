@@ -1,0 +1,57 @@
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-11-17 07:28:40
+  from 'C:\Users\Usuario\Desktop\facu\xampp\htdocs\trabajos\tpe\templates\decks.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5fb36d985e9a73_80182514',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '6d1ced7158f5febc3a1d50929e30359f74734528' => 
+    array (
+      0 => 'C:\\Users\\Usuario\\Desktop\\facu\\xampp\\htdocs\\trabajos\\tpe\\templates\\decks.tpl',
+      1 => 1605593917,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:header.tpl' => 1,
+    'file:footer.tpl' => 1,
+  ),
+),false)) {
+function content_5fb36d985e9a73_80182514 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+   <section class="contenido_paginas">
+    <h2 class="titulos">Guia de decks (tablas) de skate</h2>
+        <h4>Materiales y tecnologías:</h4>
+        <p>La gran mayoría de tablas están fabricadas con láminas de madera. En las tablas de calidad, se suelen usar 7 láminas de arce canadiense.</p>
+        <p>Hay modelos de gama alta en casi todas las marcas, que incorporan alguna parte o capa de fibra de vidrio o fibra de carbono, o diversas técnicas en su construcción que aumentan el rendimiento y la resistencia de las mismas. </p>
+        <h4>Medidas (ancho):</h4>
+        <p>Las tablas de skate de adulto ( a partir de unos 13 años ya se debería usar tabla de adulto.), tienen un rango de medida por lo general que va desde 7,5 a 9 pulgadas.</p>
+        <p>Una tabla más estrecha es más eficaz al hacer trucos técnicos ya que es más fácil moverla y hacerla girar (flips, etc) pero, al mismo tiempo, ofrece algo menos de estabilidad y espacio a la hora de caer los trucos</p>
+        <p>una tabla más ancha nos ofrece una mayor estabilidad a la hora de montar aunque será algo más costoso moverla en los trucos.</p>
+        <p>Por esto, a la hora de patinar en calle y hacer trucos técnicos se suelen usar tablas menores de 8 pulgadas y para patinar en rampa, bowls, grandes gaps, etc suele usarse tablas de entre 8 y 9 pulgadas.</p>
+        <h4>Marcas mas importantes:</h4>
+        <ul class="lidecks">
+            <li>Flip</li>
+            <li>Element</li>
+            <li>Santa Cruz</li>
+            <li>Baker</li>
+            <li>Toy Machine</li>
+            <li>Girl</li>
+            <li>Plan B</li>
+        </ul>
+        <figure class="imagenesilustrativas">
+            <img src="imagenes/deckschart.png" alt="deck_chart" class="decks_chart">
+        </figure>
+    </section>
+
+
+<?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
+}
